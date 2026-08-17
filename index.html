@@ -142,7 +142,7 @@ body{
   flex-direction:column;
   justify-content:center;
   align-items:stretch;
-  padding: clamp(20px,4vw,72px) clamp(20px,6vw,110px) clamp(76px,8vw,100px);
+  padding: clamp(20px,4vw,72px) clamp(20px,6vw,110px) clamp(230px,23vw,300px);
   opacity:0;
   overflow-y:auto;
   -webkit-overflow-scrolling:touch;
@@ -227,22 +227,38 @@ h2.slide-title{ font-size:clamp(2.2rem,4.6vw,3.4rem); line-height:1.2; font-weig
 
 /* 全頁固定出現的IP角色——主播鏡頭圈(picture-in-picture)樣式，安靜地待在角落 */
 .awen-guide{
-  position:fixed; left:16px; bottom:76px; z-index:16;
-  width:clamp(64px,9vw,92px); height:clamp(64px,9vw,92px);
-  border-radius:50%; overflow:hidden;
-  border:2.5px solid var(--blue);
-  box-shadow:0 0 16px rgba(57,200,255,.4);
-  background:#0a0d15;
+  position:fixed; left:14px; bottom:76px; z-index:16;
+  width:clamp(120px,15vw,168px); height:clamp(98px,12.5vw,140px);
+  border-radius:14px 14px 4px 4px; overflow:hidden;
+  border:2px solid var(--blue);
+  box-shadow:0 0 18px rgba(57,200,255,.4);
+  background:linear-gradient(180deg, rgba(20,26,38,.5), rgba(6,8,13,.7));
   pointer-events:none;
 }
 .awen-guide img{
-  position:absolute; top:50%; left:50%;
-  width:190%; height:190%; max-width:none;
-  object-fit:cover; object-position:center 12%;
-  transform:translate(-50%,-42%);
+  position:absolute; top:0; left:50%; width:104%; height:100%;
+  max-width:none; object-fit:cover; object-position:center 0%;
+  transform:translateX(-50%);
+}
+.awen-guide .desk-tag{
+  position:absolute; left:6px; top:6px; z-index:2;
+  font-size:.58rem; font-weight:800; letter-spacing:.06em;
+  color:#fff; background:var(--alert);
+  padding:2px 7px; border-radius:4px;
+}
+.awen-guide .desk-bar{
+  position:absolute; left:0; right:0; bottom:0; height:30%; z-index:1;
+  background:linear-gradient(180deg, rgba(57,200,255,.10), rgba(57,200,255,.34));
+  border-top:2px solid var(--blue);
+  box-shadow:0 -6px 16px rgba(57,200,255,.25) inset;
+}
+.awen-guide .desk-bar::after{
+  content:''; position:absolute; left:8%; right:8%; top:4px; height:1px;
+  background:rgba(255,255,255,.35);
 }
 @media (max-width:600px){
-  .awen-guide{ left:10px; bottom:66px; width:52px; height:52px; }
+  .awen-guide{ left:10px; bottom:66px; width:104px; height:88px; }
+  .awen-guide .desk-tag{ font-size:.5rem; padding:1px 6px; }
   .slide{ padding-left:14px; padding-bottom:130px; }
 }
 #fs-btn{
@@ -309,7 +325,9 @@ h2.slide-title{ font-size:clamp(2.2rem,4.6vw,3.4rem); line-height:1.2; font-weig
 <div class="bg-stars"></div>
 
 <div class="awen-guide">
-  <img class="awen" src="assets/awen_neon.png" alt="總務處代言角色 A-WEN，正在介紹本頁內容">
+  <img class="awen" src="assets/awen_neon.png" alt="總務處代言角色 A-WEN，正在主播台介紹本頁內容">
+  <div class="desk-tag">總務處 LIVE</div>
+  <div class="desk-bar"></div>
 </div>
 
 <div id="progress-track"><div id="progress-bar"></div></div>
