@@ -42,10 +42,10 @@ body{
 .bg-galaxy{
   position:fixed; inset:0; z-index:0; pointer-events:none;
   background-image:
-    radial-gradient(ellipse 150% 45% at 50% 46%, rgba(180,160,255,.14), transparent 62%),
-    radial-gradient(ellipse 110% 34% at 60% 50%, rgba(120,200,255,.11), transparent 66%),
-    radial-gradient(ellipse 80% 95% at 20% 30%, rgba(55,255,160,.07), transparent 70%),
-    radial-gradient(ellipse 80% 95% at 82% 68%, rgba(192,132,252,.09), transparent 70%);
+    radial-gradient(ellipse 150% 45% at 50% 46%, rgba(180,160,255,.20), transparent 62%),
+    radial-gradient(ellipse 110% 34% at 60% 50%, rgba(120,200,255,.16), transparent 66%),
+    radial-gradient(ellipse 80% 95% at 20% 30%, rgba(55,255,160,.10), transparent 70%),
+    radial-gradient(ellipse 80% 95% at 82% 68%, rgba(192,132,252,.13), transparent 70%);
   transform: rotate(-12deg) scale(1.35);
   filter: blur(28px);
   animation: drift 110s ease-in-out infinite alternate;
@@ -83,8 +83,9 @@ body{
     radial-gradient(.8px .8px at 75% 15%, rgba(255,255,255,.22), transparent),
     radial-gradient(.8px .8px at 10% 80%, rgba(200,255,220,.22), transparent),
     radial-gradient(.8px .8px at 90% 70%, rgba(255,255,255,.24), transparent);
-  background-repeat:repeat; background-size:22% 22%;
+  background-repeat:repeat; background-size:14% 14%;
   animation: driftSlow3 220s linear infinite;
+  opacity:.9;
 }
 @keyframes driftSlow3{ from{ transform:translateY(0); } to{ transform:translateY(-60px); } }
 .bg-stars{
@@ -126,10 +127,10 @@ body{
     radial-gradient(1px 1px at 30% 85%, rgba(255,255,255,.4), transparent),
     radial-gradient(1px 1px at 75% 78%, rgba(160,220,255,.4), transparent),
     radial-gradient(1px 1px at 55% 95%, rgba(255,255,255,.35), transparent);
-  background-repeat:repeat; background-size:34% 34%;
+  background-repeat:repeat; background-size:24% 24%;
   animation: twinkle2 7.5s ease-in-out infinite alternate, driftSlow 140s linear infinite;
 }
-@keyframes twinkle2{ from{ opacity:.4; } to{ opacity:.85; } }
+@keyframes twinkle2{ from{ opacity:.5; } to{ opacity:.95; } }
 @keyframes driftSlow{ from{ transform:translateY(0); } to{ transform:translateY(-40px); } }
 @media (prefers-reduced-motion: reduce){
   .bg-stars, .bg-stars2, .bg-stars3, .bg-galaxy, .bg-planets span, *{ animation:none !important; }
@@ -142,7 +143,7 @@ body{
   flex-direction:column;
   justify-content:center;
   align-items:stretch;
-  padding: clamp(20px,4vw,72px) clamp(20px,6vw,110px) clamp(90px,9vw,120px) clamp(200px,20vw,260px);
+  padding: clamp(20px,4vw,72px) clamp(20px,6vw,110px) clamp(90px,9vw,120px) clamp(230px,24vw,310px);
   opacity:0;
   overflow-y:auto;
   -webkit-overflow-scrolling:touch;
@@ -225,20 +226,20 @@ h2.slide-title{ font-size:clamp(2.2rem,4.6vw,3.4rem); line-height:1.2; font-weig
 
 .awen{ filter: drop-shadow(0 0 6px rgba(57,200,255,.85)) drop-shadow(0 0 18px rgba(57,200,255,.55)) drop-shadow(0 0 34px rgba(55,255,160,.35)) saturate(1.12) contrast(1.06) brightness(.94); }
 
-/* 全頁固定出現的IP角色——半身主播台樣式，尺寸放大、往內側靠，更有播報台的存在感 */
+/* 全頁固定出現的IP角色——半身近照，人物填滿整個框，不加多餘裝飾線 */
 .awen-guide{
-  position:fixed; left:22px; bottom:92px; z-index:16;
-  width:clamp(150px,17vw,210px); height:clamp(195px,22vw,260px);
-  border-radius:16px 16px 6px 6px; overflow:hidden;
+  position:fixed; left:20px; bottom:90px; z-index:16;
+  width:clamp(180px,20vw,250px); height:clamp(240px,27vw,320px);
+  border-radius:16px; overflow:hidden;
   border:2px solid var(--blue);
-  box-shadow:0 0 24px rgba(57,200,255,.4);
-  background:linear-gradient(180deg, rgba(20,26,38,.5), rgba(6,8,13,.7));
+  box-shadow:0 0 26px rgba(57,200,255,.45);
+  background:#0a0d15;
   pointer-events:none;
 }
 .awen-guide img{
-  position:absolute; top:0; left:50%; width:100%; height:auto;
-  max-width:none; object-fit:contain; object-position:top center;
-  transform:translateX(-50%);
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center 0%;
+  transform:scale(1.65); transform-origin:top center;
 }
 .awen-guide .desk-tag{
   position:absolute; left:8px; top:8px; z-index:2;
@@ -246,16 +247,10 @@ h2.slide-title{ font-size:clamp(2.2rem,4.6vw,3.4rem); line-height:1.2; font-weig
   color:#fff; background:var(--alert);
   padding:3px 9px; border-radius:4px;
 }
-.awen-guide .desk-bar{
-  position:absolute; left:0; right:0; bottom:0; height:12%; z-index:1;
-  background:linear-gradient(180deg, rgba(57,200,255,.10), rgba(57,200,255,.34));
-  border-top:2px solid var(--blue);
-  box-shadow:0 -6px 16px rgba(57,200,255,.25) inset;
-}
 @media (max-width:600px){
-  .awen-guide{ left:12px; bottom:78px; width:132px; height:158px; }
+  .awen-guide{ left:12px; bottom:78px; width:140px; height:186px; }
   .awen-guide .desk-tag{ font-size:.55rem; padding:2px 7px; }
-  .slide{ padding-left:14px; padding-bottom:260px; }
+  .slide{ padding-left:14px; padding-bottom:280px; }
 }
 #fs-btn{
   position:fixed; top:14px; right:16px; z-index:60;
@@ -323,7 +318,6 @@ h2.slide-title{ font-size:clamp(2.2rem,4.6vw,3.4rem); line-height:1.2; font-weig
 <div class="awen-guide">
   <img class="awen" src="assets/awen_neon.png" alt="總務處代言角色 A-WEN，正在主播台介紹本頁內容">
   <div class="desk-tag">總務處 LIVE</div>
-  <div class="desk-bar"></div>
 </div>
 
 <div id="progress-track"><div id="progress-bar"></div></div>
