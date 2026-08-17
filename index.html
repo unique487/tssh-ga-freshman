@@ -33,52 +33,76 @@ html,body{
 }
 body{
   background:
-    radial-gradient(ellipse 65% 55% at 12% 8%, rgba(55,255,160,.22), transparent 60%),
-    radial-gradient(ellipse 65% 55% at 88% 92%, rgba(57,200,255,.28), transparent 60%),
-    radial-gradient(ellipse 45% 45% at 92% 8%, rgba(192,132,252,.18), transparent 60%),
-    radial-gradient(ellipse 45% 45% at 6% 92%, rgba(55,255,160,.14), transparent 60%),
+    radial-gradient(ellipse 65% 55% at 12% 8%, rgba(55,255,160,.15), transparent 60%),
+    radial-gradient(ellipse 65% 55% at 88% 92%, rgba(57,200,255,.20), transparent 60%),
+    radial-gradient(ellipse 45% 45% at 92% 8%, rgba(192,132,252,.12), transparent 60%),
+    radial-gradient(ellipse 45% 45% at 6% 92%, rgba(55,255,160,.10), transparent 60%),
     linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
 }
 .bg-galaxy{
   position:fixed; inset:0; z-index:0; pointer-events:none;
   background-image:
-    radial-gradient(ellipse 150% 45% at 50% 46%, rgba(180,160,255,.20), transparent 62%),
-    radial-gradient(ellipse 110% 34% at 60% 50%, rgba(120,200,255,.16), transparent 66%),
-    radial-gradient(ellipse 80% 95% at 20% 30%, rgba(55,255,160,.10), transparent 70%),
-    radial-gradient(ellipse 80% 95% at 82% 68%, rgba(192,132,252,.13), transparent 70%);
+    radial-gradient(ellipse 150% 45% at 50% 46%, rgba(180,160,255,.14), transparent 62%),
+    radial-gradient(ellipse 110% 34% at 60% 50%, rgba(120,200,255,.11), transparent 66%),
+    radial-gradient(ellipse 80% 95% at 20% 30%, rgba(55,255,160,.07), transparent 70%),
+    radial-gradient(ellipse 80% 95% at 82% 68%, rgba(192,132,252,.09), transparent 70%);
   transform: rotate(-12deg) scale(1.35);
-  filter: blur(1.5px);
+  filter: blur(28px);
   animation: drift 110s ease-in-out infinite alternate;
 }
 @keyframes drift{ from{ transform:rotate(-12deg) scale(1.35) translate3d(0,0,0);} to{ transform:rotate(-12deg) scale(1.35) translate3d(2%,-1.5%,0);} }
-.bg-planets{ position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+.bg-grid{
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(57,200,255,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(57,200,255,.055) 1px, transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 45%, transparent 30%, #000 100%);
+          mask-image:radial-gradient(ellipse 80% 70% at 50% 45%, transparent 30%, #000 100%);
+}
+.bg-scan{
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:linear-gradient(180deg, transparent 0%, rgba(57,200,255,.045) 48%, rgba(57,200,255,.09) 50%, rgba(57,200,255,.045) 52%, transparent 100%);
+  background-size:100% 220px; background-repeat:no-repeat;
+  animation: scanMove 14s linear infinite;
+}
+@keyframes scanMove{ from{ background-position:0 -240px; } to{ background-position:0 110vh; } }
+.bg-planets{ position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; opacity:.42; }
 .bg-planets span{
   position:absolute; border-radius:50%;
   animation: planetDrift 26s ease-in-out infinite;
 }
 .bg-planets span:nth-child(1){
-  width:220px; height:220px; right:8%; top:10%;
-  background:radial-gradient(circle at 35% 30%, rgba(255,255,255,.5), rgba(57,200,255,.55) 35%, rgba(57,200,255,.05) 72%);
-  box-shadow:0 0 60px rgba(57,200,255,.35), inset -20px -14px 40px rgba(0,0,0,.4);
+  width:78px; height:78px; right:5%; top:8%;
+  background:radial-gradient(circle at 35% 30%, rgba(255,255,255,.22), rgba(57,200,255,.28) 35%, rgba(57,200,255,.03) 72%);
+  box-shadow:0 0 22px rgba(57,200,255,.22), inset -7px -5px 14px rgba(0,0,0,.45);
   animation-delay:0s;
 }
 .bg-planets span:nth-child(2){
-  width:130px; height:130px; left:8%; bottom:14%;
-  background:radial-gradient(circle at 40% 32%, rgba(255,255,255,.4), rgba(55,255,160,.5) 38%, rgba(55,255,160,.04) 72%);
-  box-shadow:0 0 46px rgba(55,255,160,.3), inset -14px -10px 30px rgba(0,0,0,.4);
+  width:46px; height:46px; left:5%; bottom:11%;
+  background:radial-gradient(circle at 40% 32%, rgba(255,255,255,.18), rgba(55,255,160,.22) 38%, rgba(55,255,160,.02) 72%);
+  box-shadow:0 0 16px rgba(55,255,160,.18), inset -5px -4px 11px rgba(0,0,0,.45);
   animation-delay:-9s;
 }
 .bg-planets span:nth-child(3){
-  width:170px; height:170px; right:20%; bottom:6%;
-  background:radial-gradient(circle at 38% 30%, rgba(255,255,255,.35), rgba(192,132,252,.5) 38%, rgba(192,132,252,.04) 72%);
-  box-shadow:0 0 50px rgba(192,132,252,.3), inset -16px -12px 32px rgba(0,0,0,.4);
+  width:60px; height:60px; right:16%; bottom:5%;
+  background:radial-gradient(circle at 38% 30%, rgba(255,255,255,.16), rgba(192,132,252,.22) 38%, rgba(192,132,252,.02) 72%);
+  box-shadow:0 0 18px rgba(192,132,252,.18), inset -6px -4px 12px rgba(0,0,0,.45);
   animation-delay:-17s;
 }
-.bg-planets span::after{
-  content:''; position:absolute; inset:-18% -34%; border:2px solid rgba(255,255,255,.18);
-  border-radius:50%; transform:rotate(-20deg) scaleY(.32);
-}
 @keyframes planetDrift{ 0%,100%{ transform:translate(0,0);} 50%{ transform:translate(-14px,10px);} }
+.bg-stars3{
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:
+    radial-gradient(.8px .8px at 20% 25%, rgba(255,255,255,.28), transparent),
+    radial-gradient(.8px .8px at 50% 60%, rgba(200,220,255,.25), transparent),
+    radial-gradient(.8px .8px at 75% 15%, rgba(255,255,255,.22), transparent),
+    radial-gradient(.8px .8px at 10% 80%, rgba(200,255,220,.22), transparent),
+    radial-gradient(.8px .8px at 90% 70%, rgba(255,255,255,.24), transparent);
+  background-repeat:repeat; background-size:22% 22%;
+  animation: driftSlow3 220s linear infinite;
+}
+@keyframes driftSlow3{ from{ transform:translateY(0); } to{ transform:translateY(-60px); } }
 .bg-stars{
   position:fixed; inset:0; z-index:0; pointer-events:none;
   background-image:
@@ -104,9 +128,9 @@ body{
     radial-gradient(1.2px 1.2px at 50% 5%, rgba(255,255,255,.6), transparent);
   background-repeat:repeat; background-size:100% 100%;
   animation: twinkle 5s ease-in-out infinite alternate;
-  opacity:.95;
+  opacity:.85;
 }
-@keyframes twinkle{ from{ opacity:.6; } to{ opacity:1; } }
+@keyframes twinkle{ from{ opacity:.55; } to{ opacity:.95; } }
 .bg-stars2{
   position:fixed; inset:0; z-index:0; pointer-events:none;
   background-image:
@@ -118,13 +142,13 @@ body{
     radial-gradient(1px 1px at 30% 85%, rgba(255,255,255,.4), transparent),
     radial-gradient(1px 1px at 75% 78%, rgba(160,220,255,.4), transparent),
     radial-gradient(1px 1px at 55% 95%, rgba(255,255,255,.35), transparent);
-  background-repeat:repeat; background-size:55% 55%;
+  background-repeat:repeat; background-size:34% 34%;
   animation: twinkle2 7.5s ease-in-out infinite alternate, driftSlow 140s linear infinite;
 }
-@keyframes twinkle2{ from{ opacity:.45; } to{ opacity:1; } }
+@keyframes twinkle2{ from{ opacity:.4; } to{ opacity:.85; } }
 @keyframes driftSlow{ from{ transform:translateY(0); } to{ transform:translateY(-40px); } }
 @media (prefers-reduced-motion: reduce){
-  .bg-stars, .bg-stars2, .bg-galaxy, .bg-planets span, .ring, .awen-float, .awen-point, *{ animation:none !important; }
+  .bg-stars, .bg-stars2, .bg-stars3, .bg-galaxy, .bg-planets span, .bg-scan, *{ animation:none !important; }
 }
 
 #deck{ position:relative; width:100vw; height:100vh; height:100dvh; z-index:1; }
@@ -155,9 +179,9 @@ h2.slide-title{ font-size:clamp(2.2rem,4.6vw,3.4rem); line-height:1.2; font-weig
 .slide-sub{ font-size:clamp(1.35rem,2.3vw,1.8rem); color:var(--gray); line-height:1.6; max-width:60em; margin-bottom:clamp(16px,2.4vw,30px); }
 .body-text{ font-size:clamp(1.25rem,1.7vw,1.5rem); line-height:1.75; color:#d5e0e7; }
 
-.glow-blue{ color:var(--blue); text-shadow:0 0 4px currentColor, 0 0 14px var(--blue), 0 0 32px var(--blue); }
-.glow-green{ color:var(--green); text-shadow:0 0 4px currentColor, 0 0 14px var(--green), 0 0 32px var(--green); }
-.glow-alert{ color:var(--alert); text-shadow:0 0 4px currentColor, 0 0 14px var(--alert), 0 0 30px var(--alert); }
+.glow-blue{ color:var(--blue); text-shadow:0 0 6px rgba(57,200,255,.45), 0 0 18px rgba(57,200,255,.22); }
+.glow-green{ color:var(--green); text-shadow:0 0 6px rgba(55,255,160,.45), 0 0 18px rgba(55,255,160,.22); }
+.glow-alert{ color:var(--alert); text-shadow:0 0 6px rgba(255,77,109,.45), 0 0 18px rgba(255,77,109,.22); }
 
 .card{ background:rgba(255,255,255,.045); border:3px solid var(--line); border-radius:16px; padding:clamp(18px,2.2vw,30px); backdrop-filter:blur(6px); }
 .card--blue{ border-color:var(--blue); box-shadow:0 0 26px rgba(57,200,255,.35), inset 0 0 26px rgba(57,200,255,.08); }
@@ -172,46 +196,89 @@ h2.slide-title{ font-size:clamp(2.2rem,4.6vw,3.4rem); line-height:1.2; font-weig
 
 /* 一般敘述——藍字 */
 .hl-desc{ color:#bfe9ff; font-weight:600; line-height:1.9; }
-/* 關鍵詞——純發光紅字粗體底線，不加背景色塊，避免看起來像框框 */
+/* 關鍵詞——粗體+淡色底(不加底線，不加強烈光暈) */
 .hl-key{
   color:var(--alert); font-weight:900;
-  text-shadow:0 0 5px currentColor, 0 0 16px var(--alert), 0 0 34px rgba(255,77,109,.5);
-  border-bottom:3px solid var(--alert);
-  padding-bottom:2px;
+  text-shadow:0 0 4px rgba(255,77,109,.38);
+  background:rgba(255,77,109,.10);
+  border-radius:6px; padding:.05em .28em;
   white-space:nowrap;
 }
-.hl-key--max{ font-size:1.25em; letter-spacing:.04em; border-bottom:none; padding-bottom:0; text-shadow:0 0 6px currentColor, 0 0 20px var(--alert), 0 0 46px rgba(255,77,109,.55); }
+.hl-key--purple{ color:var(--purple); background:rgba(192,132,252,.10); text-shadow:0 0 4px rgba(192,132,252,.38); }
+.hl-key--blue{ color:var(--blue); background:rgba(57,200,255,.10); text-shadow:0 0 4px rgba(57,200,255,.38); }
 @media (max-width:480px){ .hl-key{ white-space:normal; box-decoration-break:clone; -webkit-box-decoration-break:clone; } }
 
-.awen{ filter: drop-shadow(0 0 6px rgba(57,200,255,.85)) drop-shadow(0 0 18px rgba(57,200,255,.55)) drop-shadow(0 0 34px rgba(55,255,160,.35)) saturate(1.12) contrast(1.06) brightness(.94); }
-.awen-stage{ position:relative; display:inline-block; }
-.awen-stage::after{
-  content:''; position:absolute; left:50%; bottom:-4px; transform:translateX(-50%);
-  width:62%; height:22px; border-radius:50%;
-  background:radial-gradient(ellipse, rgba(57,200,255,.45), transparent 70%);
-  filter:blur(8px);
+/* 頁2 專屬：發光日曆膠囊，取代原本超大單字「三」的做法 */
+.week-strip{ display:grid; grid-template-columns:repeat(7,1fr); gap:6px; max-width:340px; margin:0 auto 18px; }
+.week-strip span{
+  font-size:clamp(.95rem,1.6vw,1.15rem); font-weight:700; text-align:center;
+  padding:8px 0; border-radius:8px;
+  color:rgba(255,255,255,.30);
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.03);
 }
-.awen-float{ animation: floaty 4.5s ease-in-out infinite; }
-@keyframes floaty{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-10px);} }
+.week-strip .on{
+  color:#fff; font-weight:900;
+  background:rgba(255,77,109,.18);
+  border:2px solid var(--alert);
+  box-shadow:0 0 14px rgba(255,77,109,.55), inset 0 0 10px rgba(255,77,109,.20);
+}
+.badge-day{
+  display:inline-flex; align-items:baseline; gap:.35em;
+  padding:clamp(14px,2vw,22px) clamp(28px,4vw,46px);
+  border:3px solid var(--alert);
+  border-radius:999px;
+  background:linear-gradient(180deg, rgba(255,77,109,.16), rgba(255,77,109,.06));
+  box-shadow:0 0 22px rgba(255,77,109,.45), inset 0 0 22px rgba(255,77,109,.10);
+  backdrop-filter:blur(6px);
+}
+.badge-lead{ font-size:clamp(1.1rem,2vw,1.5rem); font-weight:700; color:rgba(255,255,255,.72); letter-spacing:.08em; }
+.badge-main{
+  font-size:clamp(3rem,7vw,5rem); font-weight:900; line-height:1;
+  color:#ffe9ee; text-shadow:0 0 .035em rgba(255,77,109,.45); letter-spacing:.02em;
+}
+@media (max-width:600px){ .week-strip{ max-width:100%; gap:4px; } .week-strip span{ padding:6px 0; } }
 
-/* 全頁固定出現的IP角色，比在旁指著簡報內容 */
+.awen{ filter: drop-shadow(0 0 6px rgba(57,200,255,.85)) drop-shadow(0 0 18px rgba(57,200,255,.55)) drop-shadow(0 0 34px rgba(55,255,160,.35)) saturate(1.12) contrast(1.06) brightness(.94); }
+
+/* 全頁固定出現的IP角色，側身站在左下角，像主播一樣在旁講解 */
 .awen-guide{
-  position:fixed; right:clamp(10px,2.2vw,30px); top:clamp(64px,10vh,100px); z-index:16;
-  display:flex; align-items:center; gap:8px; pointer-events:none;
+  position:fixed; left:clamp(4px,1.2vw,18px); bottom:0; z-index:16;
+  pointer-events:none;
+  transform: perspective(900px) rotateY(14deg) rotate(-2deg);
+  transform-origin: bottom center;
+  filter: drop-shadow(0 0 8px rgba(57,200,255,.45));
 }
-.awen-guide img{ height:clamp(64px,9vw,120px); width:auto; }
-.awen-point{
-  width:0; height:0;
-  border-top:9px solid transparent; border-bottom:9px solid transparent;
-  border-right:15px solid var(--blue);
-  filter:drop-shadow(0 0 6px var(--blue)) drop-shadow(0 0 14px var(--blue));
-  animation: pointPulse 1.6s ease-in-out infinite;
+.awen-guide img{
+  height:clamp(150px,26vh,300px); width:auto; display:block;
+  -webkit-mask-image:linear-gradient(180deg,#000 78%,transparent 100%);
+          mask-image:linear-gradient(180deg,#000 78%,transparent 100%);
 }
-@keyframes pointPulse{ 0%,100%{ transform:translateX(0); opacity:.65;} 50%{ transform:translateX(-7px); opacity:1;} }
+.awen-guide::after{
+  content:''; position:absolute; left:42%; bottom:6px; transform:translateX(-50%) rotate(-3deg);
+  width:56%; height:16px; border-radius:50%;
+  background:radial-gradient(ellipse, rgba(57,200,255,.35), transparent 72%);
+  filter:blur(9px);
+}
+.awen-guide::before{
+  content:''; position:absolute; left:88%; bottom:22%; width:38vw; max-width:420px; height:2px;
+  background:linear-gradient(90deg, rgba(57,200,255,.28), transparent 85%);
+  filter:blur(1px);
+}
+@media (max-width:900px){ .awen-guide::before{ display:none; } }
 @media (max-width:600px){
-  .awen-guide{ top:auto; bottom:74px; right:8px; }
-  .awen-guide img{ height:56px; }
+  .awen-guide{ left:2px; bottom:0; transform:perspective(900px) rotateY(12deg); }
+  .awen-guide img{ height:clamp(76px,13vh,100px); opacity:.85; }
+  .slide{ padding-left:14px; padding-bottom:132px; }
 }
+#fs-btn{
+  position:fixed; top:14px; right:16px; z-index:60;
+  width:40px; height:40px; border-radius:50%; border:1px solid var(--line);
+  background:rgba(10,13,21,.75); color:var(--white); font-size:1.05rem; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; backdrop-filter:blur(6px);
+  transition: all .2s ease;
+}
+#fs-btn:hover{ border-color:var(--blue); color:var(--blue); box-shadow:0 0 14px rgba(57,200,255,.5); }
 
 /* nav chrome */
 #progress-track{ position:fixed; top:0; left:0; width:100%; height:4px; background:rgba(255,255,255,.06); z-index:50; }
@@ -262,17 +329,20 @@ h2.slide-title{ font-size:clamp(2.2rem,4.6vw,3.4rem); line-height:1.2; font-weig
 </head>
 <body>
 <div class="bg-galaxy"></div>
+<div class="bg-grid"></div>
 <div class="bg-planets"><span></span><span></span><span></span></div>
-<div class="bg-stars"></div>
+<div class="bg-stars3"></div>
 <div class="bg-stars2"></div>
+<div class="bg-stars"></div>
+<div class="bg-scan"></div>
 
 <div class="awen-guide">
-  <div class="awen-point"></div>
   <img class="awen" src="assets/awen_neon.png" alt="總務處代言角色 A-WEN，正在介紹本頁內容">
 </div>
 
 <div id="progress-track"><div id="progress-bar"></div></div>
 <div id="page-counter"><b id="pc-cur">1</b> / <span id="pc-total">7</span></div>
+<button id="fs-btn" onclick="toggleFullscreen()" aria-label="全螢幕">⛶</button>
 <div id="nav-btns">
   <button class="nav-btn" onclick="prevSlide()" aria-label="上一頁">←</button>
   <button class="nav-btn" onclick="nextSlide()" aria-label="下一頁">→</button>
@@ -299,9 +369,15 @@ h2.slide-title{ font-size:clamp(2.2rem,4.6vw,3.4rem); line-height:1.2; font-weig
     <h2 class="slide-title">冷氣卡什麼時候可以儲值？</h2>
     <div class="grid grid-2" style="align-items:center; margin-bottom:22px;">
       <div style="text-align:center;">
-        <div class="eyebrow" style="justify-content:center;">每週</div>
-        <div class="hl-key hl-key--max glow-alert" style="font-size:clamp(5.5rem,16vw,10.5rem); display:inline-block; line-height:1;">三</div>
-        <div class="body-text" style="margin-top:10px;">上午下課時段</div>
+        <div class="week-strip" aria-hidden="true">
+          <span>一</span><span>二</span><span class="on">三</span>
+          <span>四</span><span>五</span><span>六</span><span>日</span>
+        </div>
+        <div class="badge-day">
+          <span class="badge-lead">每週</span>
+          <span class="badge-main">三</span>
+        </div>
+        <div class="body-text" style="margin-top:12px;">上午下課時段</div>
       </div>
       <div class="body-text hl-desc">
         儲值時間為每週<span class="hl-key">三</span>的<span class="hl-key">上午下課時段</span>，
@@ -310,7 +386,7 @@ h2.slide-title{ font-size:clamp(2.2rem,4.6vw,3.4rem); line-height:1.2; font-weig
     </div>
     <div class="grid grid-3" style="margin-bottom:18px;">
       <div class="card card--blue" style="text-align:center;">① 週三上午下課</div>
-      <div class="card card--purple" style="text-align:center;">② 到總務處儲值</div>
+      <div class="card card--blue" style="text-align:center;">② 到總務處儲值</div>
       <div class="card card--alert" style="text-align:center;">③ 隔天領回</div>
     </div>
     <div class="card card--alert" style="display:flex; align-items:center; gap:14px;">
@@ -330,12 +406,12 @@ h2.slide-title{ font-size:clamp(2.2rem,4.6vw,3.4rem); line-height:1.2; font-weig
       <div class="card card--blue">
         <div class="body-text" style="font-weight:800; font-size:1.5rem; margin-bottom:10px;">日常生活事項</div>
         <div class="body-text hl-desc">教室燈具、水龍頭、門窗桌椅等生活設施損壞</div>
-        <div class="body-text" style="margin-top:16px;">報修請至 <span class="hl-key">總務處</span></div>
+        <div class="body-text" style="margin-top:16px;">報修請至 <span class="hl-key hl-key--purple">總務處</span></div>
       </div>
       <div class="card card--purple">
         <div class="body-text" style="font-weight:800; font-size:1.5rem; margin-bottom:10px;">教學設備</div>
         <div class="body-text hl-desc">投影機、粉筆、觸控大屏、無聲廣播等教學設備損壞</div>
-        <div class="body-text" style="margin-top:16px;">報修請至 <span class="hl-key" style="color:var(--purple); border-color:var(--purple); text-shadow:0 0 5px currentColor,0 0 16px var(--purple),0 0 34px rgba(192,132,252,.5);">設備組</span></div>
+        <div class="body-text" style="margin-top:16px;">報修請至 <span class="hl-key hl-key--purple">設備組</span></div>
       </div>
     </div>
   </div>
@@ -349,15 +425,15 @@ h2.slide-title{ font-size:clamp(2.2rem,4.6vw,3.4rem); line-height:1.2; font-weig
     <div class="grid grid-3">
       <div class="card card--blue">
         <div class="body-text" style="font-weight:800; margin-bottom:8px;">註冊繳費</div>
-        <div class="body-text hl-desc">已全面採<span class="hl-key">線上辦理</span></div>
+        <div class="body-text hl-desc">已全面採<span class="hl-key hl-key--blue">線上辦理</span></div>
       </div>
       <div class="card card--purple">
         <div class="body-text" style="font-weight:800; margin-bottom:8px;">補助及獎學金</div>
-        <div class="body-text hl-desc">主要以<span class="hl-key" style="color:var(--purple); border-color:var(--purple); text-shadow:0 0 5px currentColor,0 0 16px var(--purple),0 0 34px rgba(192,132,252,.5);">匯款</span>發放</div>
+        <div class="body-text hl-desc">主要以<span class="hl-key hl-key--blue">匯款</span>發放</div>
       </div>
-      <div class="card card--green">
+      <div class="card card--purple">
         <div class="body-text" style="font-weight:800; margin-bottom:8px;">有相關問題</div>
-        <div class="body-text hl-desc">可以到<span class="hl-key" style="color:var(--green); border-color:var(--green); text-shadow:0 0 5px currentColor,0 0 16px var(--green),0 0 34px rgba(55,255,160,.5);">出納組</span>諮詢</div>
+        <div class="body-text hl-desc">可以到<span class="hl-key hl-key--purple">出納組</span>諮詢</div>
       </div>
     </div>
   </div>
@@ -375,7 +451,7 @@ h2.slide-title{ font-size:clamp(2.2rem,4.6vw,3.4rem); line-height:1.2; font-weig
       </div>
       <div class="card card--alert">
         <div class="body-text" style="font-weight:800; font-size:1.4rem;">現在 — 不再隨班提供</div>
-        <div class="body-text" style="margin-top:10px;">有需要使用同學，請至 <span class="hl-key">總務處前</span> 的蒸飯箱使用</div>
+        <div class="body-text" style="margin-top:10px;">有需要使用同學，請至 <span class="hl-key hl-key--purple">總務處前</span> 的蒸飯箱使用</div>
       </div>
     </div>
   </div>
@@ -437,9 +513,14 @@ function showSlide(i){
 }
 function nextSlide(){ if(current<slides.length-1) showSlide(current+1); }
 function prevSlide(){ if(current>0) showSlide(current-1); }
+function toggleFullscreen(){
+  if(!document.fullscreenElement){ document.documentElement.requestFullscreen?.(); }
+  else{ document.exitFullscreen?.(); }
+}
 document.addEventListener('keydown', e=>{
   if(e.key==='ArrowRight'||e.key===' ') nextSlide();
   if(e.key==='ArrowLeft') prevSlide();
+  if(e.key==='f'||e.key==='F') toggleFullscreen();
 });
 let touchX=null;
 document.addEventListener('touchstart', e=>{ touchX=e.touches[0].clientX; });
