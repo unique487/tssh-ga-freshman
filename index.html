@@ -75,6 +75,49 @@ body{
   animation-delay:-17s;
 }
 @keyframes planetDrift{ 0%,100%{ transform:translate(0,0);} 50%{ transform:translate(-14px,10px);} }
+.bg-meteors{ position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+.meteor{
+  position:absolute; top:var(--y,10%); left:var(--x,80%);
+  width:3px; height:3px; border-radius:50%;
+  background:#fff; box-shadow:0 0 8px 2px rgba(180,220,255,.85);
+  opacity:0;
+  animation: meteorFall var(--dur,7s) linear infinite;
+  animation-delay: var(--delay,0s);
+}
+.meteor::before{
+  content:''; position:absolute; top:50%; left:100%;
+  width:130px; height:1.5px;
+  background:linear-gradient(90deg, rgba(255,255,255,.95), rgba(180,220,255,0));
+  transform:translateY(-50%) rotate(180deg);
+  transform-origin:left center;
+}
+@keyframes meteorFall{
+  0%{ opacity:0; transform:translate(0,0) rotate(-35deg); }
+  4%{ opacity:1; }
+  22%{ opacity:1; transform:translate(-300px,240px) rotate(-35deg); }
+  28%{ opacity:0; transform:translate(-360px,290px) rotate(-35deg); }
+  100%{ opacity:0; transform:translate(-360px,290px) rotate(-35deg); }
+}
+/* 個別獨立閃爍的亮星，取代整層一起淡入淡出的均勻感 */
+.bg-hero-stars{ position:fixed; inset:0; z-index:0; pointer-events:none; }
+.hero-star{
+  position:absolute; top:var(--y); left:var(--x);
+  width:var(--s,2.4px); height:var(--s,2.4px); border-radius:50%;
+  background:#fff; box-shadow:0 0 6px 1.5px rgba(255,255,255,.8), 0 0 14px 3px rgba(160,210,255,.4);
+  animation: heroTwinkle var(--dur,3.2s) ease-in-out infinite;
+  animation-delay: var(--delay,0s);
+}
+@keyframes heroTwinkle{ 0%,100%{ opacity:.25; transform:scale(.8);} 50%{ opacity:1; transform:scale(1.15);} }
+
+/* 星座連線圖：淡淡的連線 + 會閃的星點，放在畫面角落不擋內容 */
+.bg-constellation{ position:fixed; z-index:0; pointer-events:none; opacity:.65; }
+.bg-constellation svg{ display:block; width:100%; height:100%; overflow:visible; }
+.bg-constellation polyline{ fill:none; stroke:rgba(150,205,255,.4); stroke-width:1; }
+.bg-constellation circle{
+  fill:#fff; filter:drop-shadow(0 0 3px rgba(255,255,255,.85));
+  animation: heroTwinkle var(--dur,3.5s) ease-in-out infinite;
+  animation-delay: var(--delay,0s);
+}
 .bg-stars3{
   position:fixed; inset:0; z-index:0; pointer-events:none;
   background-image:
@@ -321,6 +364,40 @@ h2.slide-title{ font-size:clamp(2.2rem,4.6vw,3.4rem); line-height:1.2; font-weig
 <div class="bg-stars3"></div>
 <div class="bg-stars2"></div>
 <div class="bg-stars"></div>
+<div class="bg-meteors">
+  <span class="meteor" style="--x:78%; --y:6%;  --dur:7.5s; --delay:0s;"></span>
+  <span class="meteor" style="--x:35%; --y:14%; --dur:9s;   --delay:3.2s;"></span>
+  <span class="meteor" style="--x:60%; --y:2%;  --dur:8.2s; --delay:6.1s;"></span>
+  <span class="meteor" style="--x:15%; --y:22%; --dur:10.5s; --delay:1.5s;"></span>
+  <span class="meteor" style="--x:88%; --y:30%; --dur:11s;  --delay:8.4s;"></span>
+</div>
+
+<div class="bg-hero-stars">
+  <span class="hero-star" style="--x:8%;  --y:12%; --s:2.6px; --dur:3.1s; --delay:.2s;"></span>
+  <span class="hero-star" style="--x:22%; --y:6%;  --s:2px;   --dur:2.6s; --delay:1.1s;"></span>
+  <span class="hero-star" style="--x:46%; --y:9%;  --s:2.2px; --dur:3.6s; --delay:.6s;"></span>
+  <span class="hero-star" style="--x:68%; --y:15%; --s:2.4px; --dur:2.9s; --delay:1.6s;"></span>
+  <span class="hero-star" style="--x:91%; --y:22%; --s:2px;   --dur:3.3s; --delay:2.3s;"></span>
+  <span class="hero-star" style="--x:12%; --y:40%; --s:2.2px; --dur:2.8s; --delay:.9s;"></span>
+  <span class="hero-star" style="--x:36%; --y:55%; --s:2px;   --dur:3.4s; --delay:1.9s;"></span>
+  <span class="hero-star" style="--x:82%; --y:48%; --s:2.6px; --dur:3s;   --delay:.4s;"></span>
+  <span class="hero-star" style="--x:6%;  --y:70%; --s:2px;   --dur:3.2s; --delay:2.6s;"></span>
+  <span class="hero-star" style="--x:93%; --y:66%; --s:2.4px; --dur:2.7s; --delay:1.3s;"></span>
+  <span class="hero-star" style="--x:58%; --y:82%; --s:2.2px; --dur:3.5s; --delay:.7s;"></span>
+  <span class="hero-star" style="--x:30%; --y:90%; --s:2px;   --dur:3s;   --delay:2s;"></span>
+</div>
+
+<div class="bg-constellation" style="top:4%; right:3%; width:min(32vw,360px); height:min(20vh,220px);">
+  <svg viewBox="0 0 200 120">
+    <polyline points="10,95 45,70 80,78 110,35 145,25 175,50"/>
+    <circle cx="10"  cy="95" r="2.4" style="--delay:0s;"/>
+    <circle cx="45"  cy="70" r="2"   style="--delay:.5s;"/>
+    <circle cx="80"  cy="78" r="2.2" style="--delay:1.1s;"/>
+    <circle cx="110" cy="35" r="2.6" style="--delay:.3s;"/>
+    <circle cx="145" cy="25" r="2"   style="--delay:1.6s;"/>
+    <circle cx="175" cy="50" r="2.4" style="--delay:.9s;"/>
+  </svg>
+</div>
 
 <div class="awen-guide">
   <img class="awen char" src="assets/awen_bust.png" alt="總務處代言角色 A-WEN，正在主播台介紹本頁內容">
