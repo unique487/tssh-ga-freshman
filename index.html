@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>總務處小提醒｜新生訓練</title>
+<meta name="description" content="新生訓練｜總務處業務小提醒：冷氣卡儲值、報修分流、註冊繳費、蒸飯箱使用">
+<style>
+:root{
+  --bg:#05060a;
+  --bg2:#0a0d15;
+  --green:#37ffa0;
+  --green-soft:rgba(55,255,160,.14);
+  --blue:#39c8ff;
+  --blue-soft:rgba(57,200,255,.14);
+  --white:#eef4f8;
+  --gray:#8ea0ad;
+  --line:rgba(255,255,255,.08);
+  --alert:#ff4d6d;
+  --alert-soft:rgba(255,77,109,.12);
+  --font:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html,body{
+  height:100%;
+  background:var(--bg);
+  color:var(--white);
+  font-family:var(--font);
+  overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body{
+  background:
+    radial-gradient(ellipse 60% 50% at 12% 8%, rgba(55,255,160,.13), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 88% 92%, rgba(57,200,255,.16), transparent 60%),
+    radial-gradient(ellipse 40% 40% at 90% 10%, rgba(192,132,252,.08), transparent 60%),
+    radial-gradient(ellipse 40% 40% at 8% 90%, rgba(55,255,160,.07), transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+}
+.bg-galaxy{
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:
+    radial-gradient(ellipse 140% 40% at 50% 46%, rgba(180,160,255,.10), transparent 60%),
+    radial-gradient(ellipse 100% 30% at 60% 50%, rgba(120,200,255,.08), transparent 65%),
+    radial-gradient(ellipse 70% 90% at 20% 30%, rgba(55,255,160,.05), transparent 70%),
+    radial-gradient(ellipse 70% 90% at 82% 68%, rgba(192,132,252,.06), transparent 70%);
+  transform: rotate(-12deg) scale(1.3);
+  filter: blur(2px);
+  animation: drift 110s ease-in-out infinite alternate;
+}
+@keyframes drift{ from{ transform:rotate(-12deg) scale(1.3) translate3d(0,0,0);} to{ transform:rotate(-12deg) scale(1.3) translate3d(2%,-1.5%,0);} }
+.bg-stars{
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:
+    radial-gradient(1.6px 1.6px at 10% 15%, rgba(255,255,255,.9), transparent),
+    radial-gradient(1.2px 1.2px at 22% 60%, rgba(255,255,255,.7), transparent),
+    radial-gradient(1.8px 1.8px at 35% 30%, rgba(139,200,255,.9), transparent),
+    radial-gradient(1.2px 1.2px at 48% 80%, rgba(255,255,255,.6), transparent),
+    radial-gradient(1.6px 1.6px at 60% 20%, rgba(255,255,255,.8), transparent),
+    radial-gradient(1.3px 1.3px at 72% 55%, rgba(160,255,210,.8), transparent),
+    radial-gradient(1.7px 1.7px at 85% 35%, rgba(255,255,255,.9), transparent),
+    radial-gradient(1.2px 1.2px at 92% 75%, rgba(255,255,255,.6), transparent),
+    radial-gradient(1.4px 1.4px at 15% 90%, rgba(255,255,255,.7), transparent),
+    radial-gradient(1.5px 1.5px at 78% 8%, rgba(200,160,255,.8), transparent),
+    radial-gradient(1px 1px at 5% 45%, rgba(255,255,255,.55), transparent),
+    radial-gradient(1.3px 1.3px at 28% 12%, rgba(255,255,255,.65), transparent),
+    radial-gradient(1px 1px at 40% 68%, rgba(160,220,255,.6), transparent),
+    radial-gradient(1.5px 1.5px at 55% 42%, rgba(255,255,255,.75), transparent),
+    radial-gradient(1px 1px at 65% 88%, rgba(255,255,255,.5), transparent),
+    radial-gradient(1.2px 1.2px at 80% 60%, rgba(200,255,220,.6), transparent),
+    radial-gradient(1px 1px at 95% 20%, rgba(255,255,255,.55), transparent),
+    radial-gradient(1.4px 1.4px at 90% 92%, rgba(200,160,255,.6), transparent),
+    radial-gradient(1px 1px at 3% 75%, rgba(255,255,255,.5), transparent),
+    radial-gradient(1.2px 1.2px at 50% 5%, rgba(255,255,255,.6), transparent);
+  background-repeat:repeat; background-size:100% 100%;
+  animation: twinkle 5s ease-in-out infinite alternate;
+}
+@keyframes twinkle{ from{ opacity:.5; } to{ opacity:1; } }
+.bg-stars2{
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:
+    radial-gradient(1px 1px at 18% 22%, rgba(255,255,255,.5), transparent),
+    radial-gradient(1px 1px at 42% 58%, rgba(160,220,255,.5), transparent),
+    radial-gradient(1px 1px at 63% 12%, rgba(255,255,255,.4), transparent),
+    radial-gradient(1px 1px at 8% 70%, rgba(200,255,220,.4), transparent),
+    radial-gradient(1px 1px at 88% 44%, rgba(255,255,255,.45), transparent),
+    radial-gradient(1px 1px at 30% 85%, rgba(255,255,255,.4), transparent),
+    radial-gradient(1px 1px at 75% 78%, rgba(160,220,255,.4), transparent),
+    radial-gradient(1px 1px at 55% 95%, rgba(255,255,255,.35), transparent);
+  background-repeat:repeat; background-size:60% 60%;
+  animation: twinkle2 7.5s ease-in-out infinite alternate, driftSlow 140s linear infinite;
+}
+@keyframes twinkle2{ from{ opacity:.35; } to{ opacity:.9; } }
+@keyframes driftSlow{ from{ transform:translateY(0); } to{ transform:translateY(-40px); } }
+@media (prefers-reduced-motion: reduce){
+  .bg-stars, .bg-stars2, .bg-galaxy, .ring, .awen-float, *{ animation:none !important; }
+}
+
+#deck{ position:relative; width:100vw; height:100vh; height:100dvh; z-index:1; }
+.slide{
+  position:absolute; inset:0;
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  align-items:stretch;
+  padding: clamp(20px,4vw,72px) clamp(20px,6vw,110px) clamp(76px,8vw,100px);
+  opacity:0;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  transition:opacity .45s ease;
+}
+.slide.active{ display:flex; opacity:1; }
+.slide-inner{ width:100%; max-width:1200px; margin:0 auto; position:relative; z-index:1; }
+
+.eyebrow{
+  display:inline-flex; align-items:center; gap:.5em;
+  font-size:clamp(.85rem,1.3vw,1.05rem);
+  letter-spacing:.18em; text-transform:uppercase;
+  color:var(--gray); font-weight:700; margin-bottom:clamp(10px,1.6vw,20px);
+}
+.eyebrow .dot{ width:8px;height:8px;border-radius:50%; background:var(--blue); box-shadow:0 0 8px var(--blue); }
+h1.slide-title{ font-size:clamp(2.6rem,7vw,5rem); line-height:1.15; font-weight:900; letter-spacing:-.01em; margin-bottom:clamp(14px,2.2vw,24px); }
+h2.slide-title{ font-size:clamp(1.8rem,3.8vw,2.8rem); line-height:1.2; font-weight:800; margin-bottom:clamp(12px,1.8vw,20px); }
+.slide-sub{ font-size:clamp(1.15rem,1.9vw,1.5rem); color:var(--gray); line-height:1.6; max-width:60em; margin-bottom:clamp(16px,2.4vw,30px); }
+.body-text{ font-size:clamp(1.05rem,1.4vw,1.25rem); line-height:1.75; color:#d5e0e7; }
+
+.glow-blue{ color:var(--blue); text-shadow:0 0 4px currentColor, 0 0 14px var(--blue), 0 0 32px var(--blue); }
+.glow-green{ color:var(--green); text-shadow:0 0 4px currentColor, 0 0 14px var(--green), 0 0 32px var(--green); }
+.glow-alert{ color:var(--alert); text-shadow:0 0 4px currentColor, 0 0 14px var(--alert), 0 0 30px var(--alert); }
+
+.card{ background:rgba(255,255,255,.035); border:1.5px solid var(--line); border-radius:16px; padding:clamp(16px,2vw,28px); backdrop-filter:blur(6px); }
+.card--blue{ border-color:rgba(57,200,255,.45); box-shadow:0 0 24px rgba(57,200,255,.22), inset 0 0 26px rgba(57,200,255,.06); }
+.card--green{ border-color:rgba(55,255,160,.45); box-shadow:0 0 24px rgba(55,255,160,.22), inset 0 0 26px rgba(55,255,160,.06); }
+.card--alert{ border-color:rgba(255,77,109,.5); box-shadow:0 0 24px rgba(255,77,109,.24), inset 0 0 26px rgba(255,77,109,.07); border-left-width:4px; }
+
+.grid{ display:grid; gap:clamp(14px,1.8vw,26px); }
+.grid-2{ grid-template-columns:1fr 1fr; }
+.grid-3{ grid-template-columns:repeat(3,1fr); }
+@media (max-width:900px){ .grid-2,.grid-3{ grid-template-columns:1fr; } }
+
+/* 一般敘述——藍字 */
+.hl-desc{ color:#bfe9ff; font-weight:600; line-height:1.9; }
+/* 關鍵詞——紅字粗體底線色塊 */
+.hl-key{
+  color:var(--alert); font-weight:900;
+  text-shadow:0 0 4px currentColor, 0 0 12px var(--alert);
+  border-bottom:3px solid var(--alert);
+  padding:0 .12em 2px; background:var(--alert-soft); border-radius:4px 4px 0 0;
+  white-space:nowrap;
+}
+.hl-key--max{ font-size:1.25em; letter-spacing:.04em; border-bottom-width:4px; text-shadow:0 0 5px currentColor, 0 0 16px var(--alert), 0 0 34px var(--alert); }
+@media (max-width:480px){ .hl-key{ white-space:normal; box-decoration-break:clone; -webkit-box-decoration-break:clone; } }
+
+.awen{ filter: drop-shadow(0 0 6px rgba(57,200,255,.85)) drop-shadow(0 0 18px rgba(57,200,255,.55)) drop-shadow(0 0 34px rgba(55,255,160,.35)) saturate(1.12) contrast(1.06) brightness(.94); }
+.awen-stage{ position:relative; display:inline-block; }
+.awen-stage::after{
+  content:''; position:absolute; left:50%; bottom:-4px; transform:translateX(-50%);
+  width:62%; height:22px; border-radius:50%;
+  background:radial-gradient(ellipse, rgba(57,200,255,.45), transparent 70%);
+  filter:blur(8px);
+}
+.awen-float{ animation: floaty 4.5s ease-in-out infinite; }
+@keyframes floaty{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-10px);} }
+
+/* nav chrome */
+#progress-track{ position:fixed; top:0; left:0; width:100%; height:4px; background:rgba(255,255,255,.06); z-index:50; }
+#progress-bar{ height:100%; width:0%; background:linear-gradient(90deg,var(--green),var(--blue)); transition:width .35s ease; box-shadow:0 0 14px rgba(55,255,160,.7); }
+#page-counter{
+  position:fixed; bottom:16px; right:18px; z-index:50;
+  font-size:.85rem; color:var(--gray); letter-spacing:.05em;
+  background:rgba(10,13,21,.75); border:1px solid var(--line); padding:6px 14px; border-radius:999px;
+  backdrop-filter:blur(6px);
+}
+#page-counter b{ color:var(--white); }
+#nav-btns{ position:fixed; bottom:16px; left:18px; z-index:50; display:flex; gap:10px; }
+.nav-btn{
+  width:44px; height:44px; border-radius:50%; border:1px solid var(--line);
+  background:rgba(10,13,21,.75); color:var(--white); font-size:1.2rem; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; backdrop-filter:blur(6px);
+  transition: all .2s ease;
+}
+.nav-btn:hover{ border-color:var(--blue); color:var(--blue); box-shadow:0 0 14px rgba(57,200,255,.5); }
+.nav-zone{ position:fixed; top:0; bottom:0; width:14%; z-index:5; cursor:pointer; background:transparent; }
+.nav-zone.left{ left:0; } .nav-zone.right{ right:0; }
+@media (max-width:768px){ .nav-zone{ display:none; } }
+
+/* checklist */
+.chk-item{
+  display:flex; align-items:flex-start; gap:14px; padding:clamp(12px,1.6vw,18px) clamp(14px,1.8vw,20px);
+  border:1.5px solid var(--line); border-radius:14px; margin-bottom:12px; cursor:pointer;
+  background:rgba(255,255,255,.03); transition:all .2s ease;
+}
+.chk-item .box{ flex:0 0 26px; width:26px; height:26px; border-radius:6px; border:2px solid var(--gray); display:flex; align-items:center; justify-content:center; font-size:1rem; transition:all .2s ease; }
+.chk-item .txt{ font-size:clamp(1rem,1.5vw,1.2rem); line-height:1.6; }
+.chk-item.done{ border-color:rgba(55,255,160,.5); box-shadow:0 0 16px rgba(55,255,160,.18); }
+.chk-item.done .box{ background:var(--green); border-color:var(--green); color:#04150c; box-shadow:0 0 10px var(--green); }
+.chk-item.done .txt{ opacity:.62; }
+#chk-done-msg{ margin-top:18px; font-size:1.1rem; color:var(--green); opacity:0; transition:opacity .4s ease; }
+#chk-done-msg.show{ opacity:1; }
+
+/* qr */
+.qr-box{ background:#fff; padding:16px; border-radius:14px; display:inline-block; box-shadow:0 0 40px rgba(57,200,255,.35); }
+.qr-box img{ display:block; width:clamp(160px,22vw,240px); height:auto; }
+.url-text{ font-size:clamp(.9rem,1.3vw,1.05rem); color:var(--gray); word-break:break-all; margin:14px 0; }
+.btn-open{ display:inline-block; background:var(--blue-soft); color:var(--blue); border:1.5px solid rgba(57,200,255,.5); padding:12px 26px; border-radius:999px; font-weight:700; text-decoration:none; }
+.btn-open:hover{ box-shadow:0 0 20px rgba(57,200,255,.5); }
+
+.dim{ opacity:.45; filter:grayscale(.6); }
+.strike{ text-decoration: line-through; text-decoration-color: var(--gray); }
+</style>
+</head>
+<body>
+<div class="bg-galaxy"></div>
+<div class="bg-stars"></div>
+<div class="bg-stars2"></div>
+
+<div id="progress-track"><div id="progress-bar"></div></div>
+<div id="page-counter"><b id="pc-cur">1</b> / <span id="pc-total">7</span></div>
+<div id="nav-btns">
+  <button class="nav-btn" onclick="prevSlide()" aria-label="上一頁">←</button>
+  <button class="nav-btn" onclick="nextSlide()" aria-label="下一頁">→</button>
+</div>
+<div class="nav-zone left" onclick="prevSlide()"></div>
+<div class="nav-zone right" onclick="nextSlide()"></div>
+
+<div id="deck">
+
+<!-- 頁1 封面 -->
+<section class="slide" style="align-items:center; text-align:center;">
+  <div class="slide-inner" style="display:flex; flex-direction:column; align-items:center;">
+    <div class="eyebrow"><span class="dot"></span>總務處 GENERAL AFFAIRS OFFICE</div>
+    <h1 class="slide-title glow-blue">總務處小提醒</h1>
+    <p class="slide-sub">新生訓練｜開學前你該知道的幾件事</p>
+    <div class="awen-stage awen-float" style="margin-top:clamp(10px,3vw,30px);">
+      <img class="awen" src="assets/awen_neon.png" alt="總務處代言角色 A-WEN" style="height:clamp(180px,30vh,360px); width:auto;">
+    </div>
+    <p class="body-text" style="margin-top:20px; color:var(--gray);">向右滑動或按 → 開始</p>
+  </div>
+</section>
+
+<!-- 頁2 冷氣卡儲值 -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow"><span class="dot" style="background:var(--alert); box-shadow:0 0 8px var(--alert);"></span>冷氣卡・最重要的一件事</div>
+    <h2 class="slide-title">冷氣卡什麼時候可以儲值？</h2>
+    <div class="grid grid-2" style="align-items:center; margin-bottom:22px;">
+      <div style="text-align:center;">
+        <div class="eyebrow" style="justify-content:center;">每週</div>
+        <div class="hl-key hl-key--max glow-alert" style="font-size:clamp(4.5rem,14vw,9rem); display:inline-block; line-height:1;">三</div>
+        <div class="body-text" style="margin-top:10px;">上午下課時段</div>
+      </div>
+      <div class="body-text hl-desc">
+        儲值時間為每週<span class="hl-key">三</span>的<span class="hl-key">上午下課時段</span>，
+        當日儲值、<span class="hl-key">隔日領取</span>。
+      </div>
+    </div>
+    <div class="grid grid-3" style="margin-bottom:18px;">
+      <div class="card card--blue" style="text-align:center;">① 週三上午下課</div>
+      <div class="card card--blue" style="text-align:center;">② 到總務處儲值</div>
+      <div class="card card--alert" style="text-align:center;">③ 隔天領回</div>
+    </div>
+    <div class="card card--alert" style="display:flex; align-items:center; gap:14px;">
+      <span style="font-size:1.5rem;">✕</span>
+      <span class="body-text"><span class="hl-key">其他時間一律未開放儲值</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- 頁3 報修分流 -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow"><span class="dot"></span>報修找對單位</div>
+    <h2 class="slide-title">壞掉了，找誰修？</h2>
+    <p class="slide-sub">先分清楚是哪一種，才不會跑錯地方。</p>
+    <div class="grid grid-2">
+      <div class="card card--blue">
+        <div class="body-text" style="font-weight:800; font-size:1.3rem; margin-bottom:10px;">日常生活事項</div>
+        <div class="body-text hl-desc">教室燈具、水龍頭、門窗桌椅等生活設施損壞</div>
+        <div class="body-text" style="margin-top:16px;">報修請至 <span class="hl-key">總務處</span></div>
+      </div>
+      <div class="card card--green">
+        <div class="body-text" style="font-weight:800; font-size:1.3rem; margin-bottom:10px;">教學設備</div>
+        <div class="body-text hl-desc">單槍投影機、電腦、實習機具等教學設備損壞</div>
+        <div class="body-text" style="margin-top:16px;">報修請至 <span class="hl-key" style="color:var(--green); background:var(--green-soft); border-color:var(--green);">設備組</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 頁4 註冊繳費與匯款 -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow"><span class="dot"></span>註冊・繳費・補助</div>
+    <h2 class="slide-title">繳費與領補助，怎麼辦？</h2>
+    <div class="grid grid-3">
+      <div class="card card--blue">
+        <div class="body-text" style="font-weight:800; margin-bottom:8px;">註冊繳費</div>
+        <div class="body-text hl-desc">已全面採<span class="hl-key">線上辦理</span></div>
+      </div>
+      <div class="card card--blue">
+        <div class="body-text" style="font-weight:800; margin-bottom:8px;">補助及獎學金</div>
+        <div class="body-text hl-desc">主要以<span class="hl-key">匯款</span>發放</div>
+      </div>
+      <div class="card card--green">
+        <div class="body-text" style="font-weight:800; margin-bottom:8px;">有相關問題</div>
+        <div class="body-text hl-desc">可以到<span class="hl-key" style="color:var(--green); background:var(--green-soft); border-color:var(--green);">出納組</span>諮詢</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 頁5 蒸飯箱 -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow"><span class="dot"></span>蒸飯箱使用異動</div>
+    <h2 class="slide-title">蒸飯箱怎麼用？</h2>
+    <div class="grid grid-2">
+      <div class="card dim">
+        <div class="body-text strike" style="font-weight:800; font-size:1.2rem;">以前 — 隨班提供</div>
+        <div class="body-text hl-desc" style="margin-top:10px;">蒸飯箱曾經隨班配置</div>
+      </div>
+      <div class="card card--alert">
+        <div class="body-text" style="font-weight:800; font-size:1.2rem;">現在 — 不再隨班提供</div>
+        <div class="body-text" style="margin-top:10px;">有需要使用同學，請至 <span class="hl-key">總務處前</span> 的蒸飯箱使用</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 頁6 自我檢核 -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow"><span class="dot"></span>自我檢核</div>
+    <h2 class="slide-title">今天記得了嗎？</h2>
+    <div id="checklist">
+      <div class="chk-item" onclick="toggleChk(this,0)"><div class="box"></div><div class="txt">我知道冷氣卡只有<b>週三上午下課時段</b>能儲值</div></div>
+      <div class="chk-item" onclick="toggleChk(this,1)"><div class="box"></div><div class="txt">我知道儲值後是<b>隔日領取</b></div></div>
+      <div class="chk-item" onclick="toggleChk(this,2)"><div class="box"></div><div class="txt">我知道生活設施報修找<b>總務處</b>，教學設備找<b>設備組</b></div></div>
+      <div class="chk-item" onclick="toggleChk(this,3)"><div class="box"></div><div class="txt">我知道註冊繳費是<b>線上辦理</b>，獎補助<b>匯款</b>發放，問題找<b>出納組</b></div></div>
+      <div class="chk-item" onclick="toggleChk(this,4)"><div class="box"></div><div class="txt">我知道蒸飯箱要到<b>總務處前</b>使用</div></div>
+    </div>
+    <div id="chk-done-msg" class="glow-green">都記住了，開學就順了 👍</div>
+  </div>
+</section>
+
+<!-- 頁7 QR -->
+<section class="slide" style="align-items:center;">
+  <div class="slide-inner grid grid-2" style="align-items:center;">
+    <div style="text-align:center;">
+      <div class="qr-box"><img src="assets/qr.png" alt="掃描開啟本簡報"></div>
+    </div>
+    <div>
+      <h2 class="slide-title">忘記了？隨時可以看</h2>
+      <p class="body-text" style="margin-bottom:6px;">把這頁拍下來，或掃碼存進手機。</p>
+      <div class="url-text" id="deck-url"></div>
+      <a class="btn-open" id="deck-open" href="#" target="_blank" rel="noopener">直接開啟</a>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<script>
+let current = 0;
+let slides = [];
+function initDeck(){
+  slides = Array.from(document.querySelectorAll('.slide'));
+  document.getElementById('pc-total').textContent = slides.length;
+  const url = location.origin + location.pathname;
+  document.getElementById('deck-url').textContent = url;
+  document.getElementById('deck-open').href = url;
+  const hash = location.hash.match(/^#p(\d+)$/);
+  showSlide(hash ? Math.min(Math.max(+hash[1]-1,0), slides.length-1) : 0);
+}
+function showSlide(i){
+  if(i<0||i>=slides.length) return;
+  slides[current].classList.remove('active');
+  current = i;
+  slides[current].classList.add('active');
+  document.getElementById('pc-cur').textContent = i+1;
+  document.getElementById('progress-bar').style.width = ((i+1)/slides.length*100)+'%';
+  history.replaceState(null,'','#p'+(i+1));
+}
+function nextSlide(){ if(current<slides.length-1) showSlide(current+1); }
+function prevSlide(){ if(current>0) showSlide(current-1); }
+document.addEventListener('keydown', e=>{
+  if(e.key==='ArrowRight'||e.key===' ') nextSlide();
+  if(e.key==='ArrowLeft') prevSlide();
+});
+let touchX=null;
+document.addEventListener('touchstart', e=>{ touchX=e.touches[0].clientX; });
+document.addEventListener('touchend', e=>{
+  if(touchX===null) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  if(dx<-40) nextSlide();
+  if(dx>40) prevSlide();
+  touchX=null;
+});
+window.addEventListener('DOMContentLoaded', initDeck);
+
+// checklist persistence
+const CHK_KEY = 'tssh-ga-freshman-checklist';
+function loadChk(){
+  try{ return JSON.parse(localStorage.getItem(CHK_KEY)||'{}'); }catch(e){ return {}; }
+}
+function saveChk(state){ localStorage.setItem(CHK_KEY, JSON.stringify(state)); }
+function toggleChk(el, idx){
+  const state = loadChk();
+  state[idx] = !state[idx];
+  saveChk(state);
+  el.classList.toggle('done', !!state[idx]);
+  el.querySelector('.box').textContent = state[idx] ? '✓' : '';
+  checkAllDone();
+}
+function checkAllDone(){
+  const state = loadChk();
+  const items = document.querySelectorAll('.chk-item');
+  const allDone = Array.from(items).every((_,i)=>state[i]);
+  document.getElementById('chk-done-msg').classList.toggle('show', allDone && items.length>0);
+}
+(function initChecklist(){
+  const state = loadChk();
+  document.querySelectorAll('.chk-item').forEach((el,i)=>{
+    if(state[i]){ el.classList.add('done'); el.querySelector('.box').textContent='✓'; }
+  });
+  checkAllDone();
+})();
+</script>
+</body>
+</html>
