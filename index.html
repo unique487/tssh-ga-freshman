@@ -142,7 +142,7 @@ body{
   flex-direction:column;
   justify-content:center;
   align-items:stretch;
-  padding: clamp(20px,4vw,72px) clamp(20px,6vw,110px) clamp(230px,23vw,300px);
+  padding: clamp(20px,4vw,72px) clamp(20px,6vw,110px) clamp(90px,9vw,120px) clamp(200px,20vw,260px);
   opacity:0;
   overflow-y:auto;
   -webkit-overflow-scrolling:touch;
@@ -225,41 +225,37 @@ h2.slide-title{ font-size:clamp(2.2rem,4.6vw,3.4rem); line-height:1.2; font-weig
 
 .awen{ filter: drop-shadow(0 0 6px rgba(57,200,255,.85)) drop-shadow(0 0 18px rgba(57,200,255,.55)) drop-shadow(0 0 34px rgba(55,255,160,.35)) saturate(1.12) contrast(1.06) brightness(.94); }
 
-/* 全頁固定出現的IP角色——主播鏡頭圈(picture-in-picture)樣式，安靜地待在角落 */
+/* 全頁固定出現的IP角色——半身主播台樣式，尺寸放大、往內側靠，更有播報台的存在感 */
 .awen-guide{
-  position:fixed; left:14px; bottom:76px; z-index:16;
-  width:clamp(120px,15vw,168px); height:clamp(98px,12.5vw,140px);
-  border-radius:14px 14px 4px 4px; overflow:hidden;
+  position:fixed; left:22px; bottom:92px; z-index:16;
+  width:clamp(150px,17vw,210px); height:clamp(195px,22vw,260px);
+  border-radius:16px 16px 6px 6px; overflow:hidden;
   border:2px solid var(--blue);
-  box-shadow:0 0 18px rgba(57,200,255,.4);
+  box-shadow:0 0 24px rgba(57,200,255,.4);
   background:linear-gradient(180deg, rgba(20,26,38,.5), rgba(6,8,13,.7));
   pointer-events:none;
 }
 .awen-guide img{
-  position:absolute; top:0; left:50%; width:104%; height:100%;
-  max-width:none; object-fit:cover; object-position:center 0%;
+  position:absolute; top:0; left:50%; width:100%; height:auto;
+  max-width:none; object-fit:contain; object-position:top center;
   transform:translateX(-50%);
 }
 .awen-guide .desk-tag{
-  position:absolute; left:6px; top:6px; z-index:2;
-  font-size:.58rem; font-weight:800; letter-spacing:.06em;
+  position:absolute; left:8px; top:8px; z-index:2;
+  font-size:.7rem; font-weight:800; letter-spacing:.06em;
   color:#fff; background:var(--alert);
-  padding:2px 7px; border-radius:4px;
+  padding:3px 9px; border-radius:4px;
 }
 .awen-guide .desk-bar{
-  position:absolute; left:0; right:0; bottom:0; height:30%; z-index:1;
+  position:absolute; left:0; right:0; bottom:0; height:12%; z-index:1;
   background:linear-gradient(180deg, rgba(57,200,255,.10), rgba(57,200,255,.34));
   border-top:2px solid var(--blue);
   box-shadow:0 -6px 16px rgba(57,200,255,.25) inset;
 }
-.awen-guide .desk-bar::after{
-  content:''; position:absolute; left:8%; right:8%; top:4px; height:1px;
-  background:rgba(255,255,255,.35);
-}
 @media (max-width:600px){
-  .awen-guide{ left:10px; bottom:66px; width:104px; height:88px; }
-  .awen-guide .desk-tag{ font-size:.5rem; padding:1px 6px; }
-  .slide{ padding-left:14px; padding-bottom:130px; }
+  .awen-guide{ left:12px; bottom:78px; width:132px; height:158px; }
+  .awen-guide .desk-tag{ font-size:.55rem; padding:2px 7px; }
+  .slide{ padding-left:14px; padding-bottom:260px; }
 }
 #fs-btn{
   position:fixed; top:14px; right:16px; z-index:60;
