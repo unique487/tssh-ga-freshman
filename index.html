@@ -363,16 +363,16 @@ body.cover-page .awen-guide{ display:none; }
 .cover-stage{
   position:relative; flex:1 1 auto; min-height:0;
   display:grid;
-  grid-template-columns:minmax(0,42%) minmax(0,58%);
+  grid-template-columns:minmax(0,40%) minmax(0,60%);
   align-items:end;
-  gap:clamp(8px,2vw,36px);
+  gap:clamp(0px,.6vw,10px);
   padding:
     clamp(12px,2vw,28px)
-    clamp(18px,4vw,72px)
+    clamp(12px,3vw,56px)
     calc(clamp(38px,5vh,52px) + clamp(2px,.8vh,10px))
     clamp(8px,1.6vw,32px);
 }
-.cover-figure{ position:relative; z-index:2; align-self:end; justify-self:center; pointer-events:none; }
+.cover-figure{ position:relative; z-index:2; align-self:end; justify-self:end; pointer-events:none; }
 .cover-char{
   display:block; height:min(78vh,660px); width:auto; max-width:100%;
   position:relative; z-index:2;
@@ -410,7 +410,7 @@ body.cover-page .awen-guide{ display:none; }
 .anchor-plate .name{ font-size:clamp(.95rem,1.5vw,1.2rem); font-weight:900; color:#fff; letter-spacing:.05em; }
 .anchor-plate .role{ font-size:clamp(.52rem,.85vw,.68rem); font-weight:700; letter-spacing:.2em; color:#a9e2ff; }
 
-.cover-copy{ align-self:center; z-index:3; }
+.cover-copy{ align-self:center; z-index:3; margin-left:clamp(-40px,-3vw,-10px); }
 .cover-copy .breaking-badge{ margin-bottom:clamp(12px,1.8vw,20px); }
 .cover-sub{ margin-top:clamp(14px,2vw,24px); max-width:20em; font-size:clamp(1.05rem,1.9vw,1.55rem); line-height:1.6; color:#cfe6f2; }
 .cover-hint{ margin-top:clamp(8px,1.2vw,14px); font-size:clamp(.85rem,1.2vw,1.05rem); color:var(--gray); letter-spacing:.04em; }
@@ -418,7 +418,7 @@ body.cover-page .awen-guide{ display:none; }
 
 .hero-board{
   position:relative; display:inline-block;
-  padding: clamp(18px,2.4vw,34px) clamp(24px,3.2vw,48px) clamp(14px,2vw,26px);
+  padding: clamp(22px,3vw,42px) clamp(30px,4vw,60px) clamp(18px,2.6vw,32px);
   background:linear-gradient(155deg, rgba(10,26,40,.72), rgba(6,10,18,.52));
   border:2px solid rgba(57,200,255,.55); border-radius:6px;
   box-shadow:0 0 42px rgba(57,200,255,.28), inset 0 0 48px rgba(57,200,255,.07), 0 26px 60px rgba(0,0,0,.55);
@@ -447,19 +447,15 @@ body.cover-page .awen-guide{ display:none; }
 .hb-corner.bl{ left:-6px;  bottom:-6px; border-right:0; border-top:0; }
 .hb-corner.br{ right:-6px; bottom:-6px; border-left:0;  border-top:0; }
 
-.hero-line{ font-weight:900; line-height:1; letter-spacing:.08em; white-space:nowrap; }
+.hero-line{ font-weight:900; line-height:1.15; letter-spacing:.06em; white-space:nowrap; }
 .hl-1{
-  font-size:clamp(2.1rem,4.8vw,4.3rem); color:#eaf9ff;
-  -webkit-text-stroke:1.5px rgba(170,235,255,.8);
-  text-shadow:0 2px 0 #17607f, 0 4px 0 #114f68, 0 6px 0 #0c3b50, 0 8px 16px rgba(0,0,0,.6),
-    0 0 20px rgba(57,200,255,.55), 0 0 50px rgba(57,200,255,.28);
-  margin-bottom:clamp(6px,1vw,14px);
+  font-size:clamp(1.6rem,3.6vw,3rem); color:#eaf9ff;
+  text-shadow:0 0 6px rgba(57,200,255,.45), 0 0 18px rgba(57,200,255,.3), 0 4px 10px rgba(0,0,0,.5);
+  margin-bottom:clamp(8px,1.2vw,16px);
 }
 .hl-2{
-  font-size:clamp(3.1rem,7.4vw,6.6rem); color:#e9fff4;
-  -webkit-text-stroke:2px rgba(120,255,200,.85);
-  text-shadow:0 3px 0 #178f5c, 0 6px 0 #12724a, 0 9px 0 #0d5738, 0 12px 0 #093c27, 0 15px 24px rgba(0,0,0,.7),
-    0 0 26px rgba(55,255,160,.6), 0 0 62px rgba(55,255,160,.32);
+  font-size:clamp(3.4rem,8vw,7.2rem); color:#f2fffa;
+  text-shadow:0 0 8px rgba(55,255,160,.5), 0 0 24px rgba(55,255,160,.35), 0 0 56px rgba(55,255,160,.2), 0 6px 14px rgba(0,0,0,.55);
 }
 .hero-kicker{
   margin-top:clamp(8px,1.2vw,16px); font-size:clamp(.6rem,1vw,.85rem); font-weight:800;
@@ -478,11 +474,11 @@ body.cover-page .awen-guide{ display:none; }
 }
 body.cover-page .channel-bug{ display:inline-flex; }
 .channel-bug .mark{
-  width:26px; height:26px; border-radius:50%; display:grid; place-items:center;
-  background:radial-gradient(circle at 35% 30%, #8fecff, #1189c6 58%, #06415f);
+  width:28px; height:28px; border-radius:50%; overflow:hidden; flex:0 0 auto;
+  display:grid; place-items:center; background:#fff;
   box-shadow:0 0 12px rgba(57,200,255,.75);
-  font-size:.78rem; font-weight:900; color:#03202e;
 }
+.channel-bug .mark img{ width:100%; height:100%; object-fit:cover; }
 .channel-bug .txt{ display:flex; flex-direction:column; line-height:1.08; }
 .channel-bug .t1{ font-size:.78rem; font-weight:900; letter-spacing:.13em; color:#dff4ff; }
 .channel-bug .t2{ font-size:.55rem; font-weight:700; letter-spacing:.16em; color:var(--blue); }
@@ -494,17 +490,14 @@ body.cover-page .channel-bug{ display:inline-flex; }
     gap:clamp(6px,2vh,16px);
     padding:14px 16px calc(36px + 8px);
   }
-  .cover-figure{ order:1; align-self:center; }
+  .cover-figure{ order:1; align-self:center; justify-self:center; }
   .cover-char{ height:min(34vh,290px); }
   .cover-figure::after{ width:56%; height:16px; }
-  .cover-copy{ order:2; align-self:start; text-align:center; }
+  .cover-copy{ order:2; align-self:start; text-align:center; margin-left:0; }
   .hero-board{ transform:none; padding:14px 18px 12px; border-width:1.5px; }
   .hb-corner{ width:12px; height:12px; }
-  .hl-1{ font-size:clamp(1.5rem,7vw,2.1rem); -webkit-text-stroke-width:1px; }
-  .hl-2{
-    font-size:clamp(2.1rem,11vw,3.1rem); -webkit-text-stroke-width:1.2px;
-    text-shadow:0 2px 0 #178f5c, 0 4px 0 #12724a, 0 6px 0 #0d5738, 0 8px 14px rgba(0,0,0,.7), 0 0 18px rgba(55,255,160,.55);
-  }
+  .hl-1{ font-size:clamp(1.3rem,6vw,1.9rem); }
+  .hl-2{ font-size:clamp(2.2rem,10vw,3.2rem); }
   .hero-kicker{ letter-spacing:.2em; }
   .cover-sub{ max-width:100%; margin-top:10px; font-size:1rem; }
   .cover-hint{ margin-top:6px; font-size:.82rem; }
@@ -653,7 +646,7 @@ body.cover-page #nav-btns, body.cover-page #page-counter{ bottom:clamp(56px,7vh,
 <!-- 頁1 封面：新聞插播風格，人物脫框放大 + 大字報取代原標題 -->
 <section class="slide slide--cover">
   <div class="channel-bug" aria-hidden="true">
-    <span class="mark">T</span>
+    <span class="mark"><img src="assets/tssh_logo.png" alt=""></span>
     <span class="txt">
       <span class="t1">TSSH NEWS</span>
       <span class="t2">HD‧總務處新聞台</span>
@@ -663,7 +656,7 @@ body.cover-page #nav-btns, body.cover-page #page-counter{ bottom:clamp(56px,7vh,
     <div class="cover-figure">
       <img class="cover-char" src="assets/awen_neon.png" alt="總務處代言角色 A-WEN，新生訓練快報主播">
       <div class="anchor-plate">
-        <span class="name">主播　A-WEN</span>
+        <span class="name">主播　林昌臻</span>
         <span class="role">ANCHOR‧總務處 GENERAL AFFAIRS</span>
       </div>
     </div>
@@ -672,7 +665,7 @@ body.cover-page #nav-btns, body.cover-page #page-counter{ bottom:clamp(56px,7vh,
       <div class="hero-board">
         <span class="hb-corner tl"></span><span class="hb-corner tr"></span>
         <span class="hb-corner bl"></span><span class="hb-corner br"></span>
-        <div class="hero-line hl-1">新生開學</div>
+        <div class="hero-line hl-1">新生始業輔導</div>
         <div class="hero-line hl-2">總務快報</div>
         <div class="hero-kicker">GENERAL AFFAIRS BULLETIN</div>
       </div>
