@@ -226,10 +226,10 @@ body{
 /* 封面底部跑馬燈：模擬電視新聞台下方跑馬燈 */
 .news-ticker{
   position:absolute; left:0; right:0; bottom:0; height:clamp(38px,5vh,52px);
+  box-sizing:border-box;
   display:flex; align-items:stretch; overflow:hidden; z-index:10;
   background:linear-gradient(90deg, rgba(255,77,109,.94), rgba(160,16,36,.94));
-  border-top:2px solid rgba(255,255,255,.25);
-  box-shadow:0 -4px 18px rgba(255,77,109,.35);
+  box-shadow:0 -4px 18px rgba(255,77,109,.35), inset 0 2px 0 rgba(255,255,255,.25);
 }
 .news-ticker .ticker-label{
   flex:0 0 auto; height:100%; box-sizing:border-box; margin-left:20px;
