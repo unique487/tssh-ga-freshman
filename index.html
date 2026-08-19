@@ -232,17 +232,18 @@ body{
   box-shadow:0 -4px 18px rgba(255,77,109,.35);
 }
 .news-ticker .ticker-label{
-  flex:0 0 auto; display:flex; align-items:center; gap:.4em;
+  flex:0 0 auto; height:100%; box-sizing:border-box; margin-left:20px;
+  display:flex; align-items:center; justify-content:center; gap:.4em; line-height:1;
   background:#0a0a0a; color:#fff; font-weight:900; letter-spacing:.1em;
   padding:0 clamp(12px,2vw,20px); font-size:clamp(.75rem,1.1vw,.95rem);
 }
 .news-ticker .ticker-label .live-dot{
-  width:7px; height:7px; border-radius:50%; background:var(--alert);
+  flex:0 0 auto; width:7px; height:7px; border-radius:50%; background:var(--alert);
   box-shadow:0 0 6px var(--alert); animation: liveBlink 1.1s ease-in-out infinite;
 }
-.news-ticker .ticker-viewport{ flex:1 1 auto; overflow:hidden; }
+.news-ticker .ticker-viewport{ flex:1 1 auto; height:100%; overflow:hidden; }
 .news-ticker .ticker-track{
-  display:flex; width:max-content; height:100%; align-items:center;
+  display:flex; width:max-content; height:100%; align-items:center; line-height:1;
   animation: tickerScroll 26s linear infinite;
 }
 .news-ticker .ticker-track span{
@@ -251,7 +252,7 @@ body{
   padding-right:70px;
 }
 @keyframes tickerScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
-@media (max-width:600px){ .news-ticker{ height:36px; } }
+@media (max-width:600px){ .news-ticker{ height:36px; } .news-ticker .ticker-label{ margin-left:12px; } }
 h1.slide-title{ font-size:clamp(3.1rem,8vw,5.8rem); line-height:1.15; font-weight:900; letter-spacing:-.01em; margin-bottom:clamp(14px,2.2vw,24px); }
 h2.slide-title{ font-size:clamp(2.2rem,4.6vw,3.4rem); line-height:1.2; font-weight:800; margin-bottom:clamp(12px,1.8vw,20px); }
 .slide-sub{ font-size:clamp(1.35rem,2.3vw,1.8rem); color:var(--gray); line-height:1.6; max-width:60em; margin-bottom:clamp(16px,2.4vw,30px); }
@@ -633,7 +634,7 @@ let slides = [];
 function initDeck(){
   slides = Array.from(document.querySelectorAll('.slide'));
   document.getElementById('pc-total').textContent = slides.length;
-  const url = location.origin + location.pathname;
+  const url = 'https://unique487.github.io/tssh-ga-freshman/';
   document.getElementById('deck-url').textContent = url;
   document.getElementById('deck-open').href = url;
   const hash = location.hash.match(/^#p(\d+)$/);
