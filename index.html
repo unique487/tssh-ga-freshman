@@ -365,7 +365,7 @@ body.cover-page .awen-guide{ display:none; }
   display:grid;
   grid-template-columns:minmax(0,40%) minmax(0,60%);
   align-items:end;
-  gap:clamp(0px,.6vw,10px);
+  gap:clamp(0px,.5vw,8px);
   padding:
     clamp(12px,2vw,28px)
     clamp(12px,3vw,56px)
@@ -410,10 +410,10 @@ body.cover-page .awen-guide{ display:none; }
 .anchor-plate .name{ font-size:clamp(.95rem,1.5vw,1.2rem); font-weight:900; color:#fff; letter-spacing:.05em; }
 .anchor-plate .role{ font-size:clamp(.52rem,.85vw,.68rem); font-weight:700; letter-spacing:.2em; color:#a9e2ff; }
 
-.cover-copy{ align-self:center; z-index:3; margin-left:clamp(-40px,-3vw,-10px); }
-.cover-copy .breaking-badge{ margin-bottom:clamp(12px,1.8vw,20px); }
-.cover-sub{ margin-top:clamp(14px,2vw,24px); max-width:20em; font-size:clamp(1.05rem,1.9vw,1.55rem); line-height:1.6; color:#cfe6f2; }
-.cover-hint{ margin-top:clamp(8px,1.2vw,14px); font-size:clamp(.85rem,1.2vw,1.05rem); color:var(--gray); letter-spacing:.04em; }
+.cover-copy{ align-self:center; z-index:3; margin-left:clamp(-58px,-4.1vw,-24px); }
+.cover-copy .breaking-badge{ margin-top:clamp(8px,1.1vw,13px); margin-left:clamp(18px,3.4vw,50px); }
+.cover-sub{ margin-top:clamp(18px,2.4vw,30px); margin-left:clamp(18px,3.4vw,50px); max-width:20em; font-size:clamp(1.05rem,1.9vw,1.55rem); line-height:1.6; color:#cfe6f2; }
+.cover-hint{ margin-top:clamp(8px,1.1vw,14px); margin-left:clamp(18px,3.4vw,50px); font-size:clamp(.85rem,1.2vw,1.05rem); color:var(--gray); letter-spacing:.04em; }
 .cover-hint b{ color:var(--blue); animation:liveBlink 1.6s ease-in-out infinite; }
 
 .hero-board{
@@ -464,7 +464,7 @@ body.cover-page .awen-guide{ display:none; }
 
 .channel-bug{
   position:fixed; top:14px; right:66px; z-index:59;
-  display:none; align-items:center; gap:8px;
+  display:inline-flex; align-items:center; gap:8px;
   height:40px; padding:0 14px 0 7px; border-radius:999px;
   background:linear-gradient(135deg, rgba(10,20,32,.86), rgba(8,12,20,.68));
   border:1px solid rgba(57,200,255,.45);
@@ -472,7 +472,6 @@ body.cover-page .awen-guide{ display:none; }
   backdrop-filter:blur(8px);
   pointer-events:none;
 }
-body.cover-page .channel-bug{ display:inline-flex; }
 .channel-bug .mark{
   width:28px; height:28px; border-radius:50%; overflow:hidden; flex:0 0 auto;
   display:grid; place-items:center; background:#fff;
@@ -494,13 +493,14 @@ body.cover-page .channel-bug{ display:inline-flex; }
   .cover-char{ height:min(34vh,290px); }
   .cover-figure::after{ width:56%; height:16px; }
   .cover-copy{ order:2; align-self:start; text-align:center; margin-left:0; }
+  .cover-copy .breaking-badge{ margin-left:0; }
   .hero-board{ transform:none; padding:14px 18px 12px; border-width:1.5px; }
   .hb-corner{ width:12px; height:12px; }
   .hl-1{ font-size:clamp(1.3rem,6vw,1.9rem); }
   .hl-2{ font-size:clamp(2.2rem,10vw,3.2rem); }
   .hero-kicker{ letter-spacing:.2em; }
-  .cover-sub{ max-width:100%; margin-top:10px; font-size:1rem; }
-  .cover-hint{ margin-top:6px; font-size:.82rem; }
+  .cover-sub{ max-width:100%; margin-top:10px; margin-left:0; font-size:1rem; }
+  .cover-hint{ margin-top:6px; margin-left:0; font-size:.82rem; }
   .anchor-plate{
     position:static; order:3; justify-self:center; transform:none;
     flex-direction:row; align-items:baseline; gap:8px; padding:5px 12px; margin-top:8px;
@@ -631,6 +631,14 @@ body.cover-page #nav-btns, body.cover-page #page-counter{ bottom:clamp(56px,7vh,
   <div class="desk-tag">總務處 LIVE</div>
 </div>
 
+<div class="channel-bug" aria-hidden="true">
+  <span class="mark"><img src="assets/tssh_logo.png" alt=""></span>
+  <span class="txt">
+    <span class="t1">TSSH NEWS</span>
+    <span class="t2">HD‧總務處新聞台</span>
+  </span>
+</div>
+
 <div id="progress-track"><div id="progress-bar"></div></div>
 <div id="page-counter"><b id="pc-cur">1</b> / <span id="pc-total">7</span></div>
 <button id="fs-btn" onclick="toggleFullscreen()" aria-label="全螢幕">⛶</button>
@@ -645,13 +653,6 @@ body.cover-page #nav-btns, body.cover-page #page-counter{ bottom:clamp(56px,7vh,
 
 <!-- 頁1 封面：新聞插播風格，人物脫框放大 + 大字報取代原標題 -->
 <section class="slide slide--cover">
-  <div class="channel-bug" aria-hidden="true">
-    <span class="mark"><img src="assets/tssh_logo.png" alt=""></span>
-    <span class="txt">
-      <span class="t1">TSSH NEWS</span>
-      <span class="t2">HD‧總務處新聞台</span>
-    </span>
-  </div>
   <div class="cover-stage">
     <div class="cover-figure">
       <img class="cover-char" src="assets/awen_neon.png" alt="總務處代言角色 A-WEN，新生訓練快報主播">
@@ -661,7 +662,6 @@ body.cover-page #nav-btns, body.cover-page #page-counter{ bottom:clamp(56px,7vh,
       </div>
     </div>
     <div class="cover-copy">
-      <div class="breaking-badge"><span class="live-dot"></span>插播 BREAKING NEWS</div>
       <div class="hero-board">
         <span class="hb-corner tl"></span><span class="hb-corner tr"></span>
         <span class="hb-corner bl"></span><span class="hb-corner br"></span>
@@ -669,6 +669,7 @@ body.cover-page #nav-btns, body.cover-page #page-counter{ bottom:clamp(56px,7vh,
         <div class="hero-line hl-2">總務快報</div>
         <div class="hero-kicker">GENERAL AFFAIRS BULLETIN</div>
       </div>
+      <div class="breaking-badge"><span class="live-dot"></span>插播 BREAKING NEWS</div>
       <p class="cover-sub">新生訓練｜開學前你該知道的幾件事</p>
       <p class="cover-hint">向右滑動或按 <b>→</b> 開始</p>
     </div>
